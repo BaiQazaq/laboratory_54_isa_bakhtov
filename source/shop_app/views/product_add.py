@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from shop_app.models import Good
 
 
-def add_view(request):
+def product_add_view(request):
     if request.method == "GET":
         return render(request, 'create_task.html')
     task_data = {
