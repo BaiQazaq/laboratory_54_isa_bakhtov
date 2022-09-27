@@ -16,7 +16,7 @@ class Good(models.Model):
     category = models.ForeignKey(verbose_name="Категория", to='shop_app.Category', null=False, blank=False, related_name='goods', on_delete=models.CASCADE, )
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
     price = models.DecimalField(verbose_name='Цена', max_digits=5, decimal_places=2, null=False)
-    photo = models.ImageField(verbose_name="Изображение", )
+    photo = models.CharField(verbose_name="Изображение", max_length=500, null=False, blank=False, default="No photo")
     changed_at = models.DateTimeField(verbose_name='Дата изменения', auto_now=True)
 
     def __str__(self):
