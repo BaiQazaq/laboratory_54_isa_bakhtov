@@ -3,5 +3,5 @@ from shop_app.models import Good
 
 
 def product_view(request, pk):
-    task = get_object_or_404(Good, pk=pk)
-    return render(request, 'task.html', context={'task': task})
+    good = get_object_or_404(Good, pk=pk)
+    return render(request, 'product.html', context={'good': good})

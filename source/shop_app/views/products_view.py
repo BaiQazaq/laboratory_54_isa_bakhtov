@@ -2,8 +2,8 @@ from django.shortcuts import render
 from shop_app.models import Good
 
 def products_view(request):
-    tasks = Good.objects.all()
+    goods = Good.objects.all()
     context = {
-        "tasks": tasks
+        "goods": goods
     }
-    return render(request, 'base.html', context)
+    return render(request, 'products.html', context)

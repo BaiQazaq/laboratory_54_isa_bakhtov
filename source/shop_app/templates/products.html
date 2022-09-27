@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block content%}
+    {% for good in goods %}
+        <div>
+            <img src='{{good.image}}' style="width: 70px">
+        </div>
+        <div>
+            <p>Category - {{ good.category }}</p>
+            <h2>{{ good.title }}</h2>
+            <p>Category - {{ good.category }}</p>
+            <p>Price: {{ good.price }}$</p>
+            <p><a href="{% url 'page_show_good' good.pk %}">see more >>></a></p>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'index.html'%}
+
+{% block title %}
+  Product - {{ good.title }}
+{% endblock %}
+
+{% block content %}
+   <div> 
+        <img src='{{good.image}}' style="width: 150px">
+   </div>
+   <div> 
+        <p>{{ good.title }}</p>
+        <p>Category {{ good.category }}</p>
+        <p>Price: {{ good.price }}$</p>
+        <p>Description: {{ good.description }}$</p>
+        <p>added: {{ good.created_at }}$</p>
+   </div>
+{% endblock%}
