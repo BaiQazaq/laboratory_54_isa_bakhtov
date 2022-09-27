@@ -1,0 +1,14 @@
+{% extends 'index.html'%}
+
+{% block title %}
+  Category - {{ category.title }}
+{% endblock %}
+
+{% block content %}
+   <div> 
+        <p>{{ good.title }}</p>
+        <p>Title {{ category.title }}</p>
+        <p>Description: {{ category.description }}$</p>
+        <p>added: {{ category.created_at }}$</p>
+   </div>
+{% endblock%}

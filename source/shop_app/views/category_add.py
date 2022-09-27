@@ -10,4 +10,4 @@ def category_add_view(request):
         'description': request.POST.get('description'),
     }
     category = Category.objects.create(**category_data)
-    return redirect('page_add_category', pk=category.pk)
+    return redirect('page_show_category', pk=category.pk)

@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+
+{% block content%}
+    {% for category in categories %}
+        <div>
+            <p>{{ category.title }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
