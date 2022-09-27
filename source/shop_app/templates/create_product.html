@@ -3,37 +3,46 @@
     Product create
 {% endblock%}
 
-{% block content %}
+{% block show_cat %}
 <h1>Add poduct</h1>
     <form action="{% url 'page_add_good' %}" method="POST">
         {% csrf_token %}
         <div class="form">
             <div class="form_row">
-            <input id="title" name="title" type="text" placeholder="Title">
+                <input id="title" name="title" type="text" placeholder="Title">
+            </div>
         </div>
+
         <div class="form">
             <div class="form_row">
-            <input id="price" name="price" type="text" placeholder="Price">
+                <input id="price" name="price" type="number" placeholder="Price">
+            </div>
         </div>
+        
         <div class="form">
             <div class="form_row">
-            <input id="photo" name="photo" type="text" placeholder="Image url">
+                <input id="photo" name="photo" type="text" placeholder="Image url">
+            </div>
         </div>
+
         <div class="form">
             <div class="form_row">
-            <select name="category">
-                <option disabled>Category</option>
-                <option value=""></option>
-                <option></option>
-                <option></option>
-            </select>
+                <select name="category">
+                    <option disabled selected>Category</option>
+                    {% for category in categories %}
+                        <option value={{ category.title}}>{{ category.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
         </div>
+
         <div class="form_row">
             <textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
         </div>
+
         <div class="from_row">
             <button type="submit">Add product</button>
         </div>
-        </div>
+    </div>
     </form>
 {% endblock %}

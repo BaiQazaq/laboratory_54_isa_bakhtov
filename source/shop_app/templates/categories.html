@@ -1,8 +1,8 @@
 {% extends 'index.html' %}
 
-{% block content%}
+{% block show_cat%}
     {% for category in categories %}
-        <div>
+        <div >
             <p>{{ category.title }}</p>
         </div>
     {% endfor %}

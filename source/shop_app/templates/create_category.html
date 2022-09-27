@@ -3,7 +3,7 @@
     Category create
 {% endblock%}
 
-{% block content %}
+{% block show_cat %}
 <h1>Add category</h1>
     <form action="{% url 'page_add_category' %}" method="POST">
         {% csrf_token %}

@@ -1,16 +1,22 @@
+from multiprocessing import context
 from django.shortcuts import render, redirect
 from shop_app.models import Good
+from shop_app.models import Category
 
 
 def product_add_view(request):
     if request.method == "GET":
-        return render(request, 'create_product.html')
+        context = {
+            'categories': Category.objects.all()
+        }
+        return render(request, 'create_product.html', context)
+    print("++++"*5, request.POST.get('category'))
     good_data = {
         'title': request.POST.get('title'),
         'description': request.POST.get('description'),
-        'category': request.POST.get('category'),
-        'price': request.Post.get('price'),
-        'photo': request.Post.get('photo')
+        'price': request.POST.get('price'),
+        'photo': request.POST.get('photo'),
     }
-    good = Good.objects.create(**good_data)
-    return redirect('page_add_good', pk=good.pk)
+    category = Category.objects.get(title=request.POST.get('category'))
+    good = Good.objects.create(**good_data, category=category)
+    return redirect('page_show_good', pk=good.pk)
